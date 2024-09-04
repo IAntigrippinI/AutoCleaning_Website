@@ -1,0 +1,13 @@
+body {
+  background: url('images/bg.jpg');
+}
+
+.App {
+  height: 100vh;
+}
+
+.container {
+  max-width: 1580px;
+  margin: 0 auto;
+  margin-top: 1%;
+}
