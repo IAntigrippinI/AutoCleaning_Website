@@ -1,0 +1,65 @@
+.nav {
+    display: flex;
+    /* background-color: red; */
+    border-bottom: 3px solid;
+    border-radius: 10px;
+
+}
+
+.logo-img {
+    max-width: 50px;
+    /* width: 150px; */
+}
+
+.logo {
+    display: flex;
+    text-decoration: solid;
+    color: white;
+}
+
+.logo:hover {
+    cursor: pointer;
+    color: #29cdff;
+    transition: 1s;
+}
+
+.logo-block {
+    margin-left: 5%;
+    width: 15%;
+}
+
+.navigation {
+    text-align: center;
+    /* background-color: red; */
+    width: 70%;
+}
+
+.nav-btn {
+    color: white;
+    margin-right: 5%;
+    text-decoration: solid;
+}
+
+.nav-btn:hover {
+    color: #29cdff;
+    transition: 1s;
+}
+
+.nav-btn-active {
+    text-decoration: none;
+    color: #29cdff;
+}
+
+.account {
+    /* background-color: red; */
+    width: 20%;
+
+}
+
+.acc-logo {
+    max-width: 40px;
+    min-width: 40px;
+    margin-left: 30%;
+    margin-top: 0%;
+    cursor: pointer;
+}
