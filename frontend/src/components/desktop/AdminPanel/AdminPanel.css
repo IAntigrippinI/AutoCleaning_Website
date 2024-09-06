@@ -1,0 +1,31 @@
+.adm-pan {
+    margin-top: 7%;
+    /* background-color: blue; */
+    width: 30%;
+    padding-bottom: 30%;
+}
+
+.input-order {
+    width: 90%;
+}
+
+.btn-adm-block {
+    margin-top: 10%;
+    text-align: center;
+    width: 90%;
+}
+
+.btn-adm {
+    border: 3px solid;
+    margin-right: 5%;
+    /* background-color: rgda(255, 255, 255, 255); */
+    background-color: rgba(241, 175, 113, 0.8);
+    border-radius: 10px;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    font-size: 18px;
+
+    text-decoration: none;
+}
