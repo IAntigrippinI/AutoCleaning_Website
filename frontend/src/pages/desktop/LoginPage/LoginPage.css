@@ -1,0 +1,57 @@
+.login-block {
+    background-color: #29cdff;
+    text-align: center;
+    width: 20%;
+    margin: 0 auto;
+    margin-top: 7%;
+    padding-top: 2%;
+    padding-bottom: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    border-radius: 70px;
+}
+
+.content {
+    text-align: left;
+}
+
+.row {
+    margin-bottom: 6%;
+}
+
+.input-line {
+    width: 100%;
+    min-height: 25px;
+}
+
+.reg-btn {
+    text-decoration: solid;
+    background-color: #29cdff;
+    border: 2px solid #000;
+    font-size: 24px;
+    padding-left: 7%;
+    padding-right: 7%;
+    padding-top: 1%;
+    padding-bottom: 0.5%;
+    border-radius: 10px;
+}
+
+
+.reg-btn:hover {
+    cursor: pointer;
+}
+
+
+.btn-block-log {
+    margin-top: 20%;
+}
+
+.to-reg {
+    margin-top: 15%;
+}
+
+.alert-place {
+    color: red;
+    font-size: 13px;
+    text-align: center;
+}
