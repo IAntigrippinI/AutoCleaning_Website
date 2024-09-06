@@ -1,0 +1,14 @@
+.profile-page {
+    background-color: rgba(241, 175, 113, 0.8);
+    display: flex;
+}
+
+.user-info {
+    width: 25%;
+}
+
+.user-history {
+    width: 60%;
+    border-left: 2px solid;
+    padding-left: 5%;
+}
