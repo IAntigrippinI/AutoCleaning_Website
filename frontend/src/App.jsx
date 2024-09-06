@@ -6,6 +6,9 @@ import NavBar from './components/desktop/NavBar/NavBar'
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom'
 import HomePage from './pages/desktop/HomePage/HomePage'
 import SalesPage from './pages/desktop/SalesPage/SalesPage'
+import RegistrationPage from './pages/desktop/RegistrationPage/RegistrationPage'
+import ProfilePage from './pages/desktop/ProfilePage/ProfilePage'
+import LoginPage from './pages/desktop/LoginPage/LoginPage'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,6 +23,9 @@ function App() {
           <Routes>
             <Route path='/' element={<div className='container'><HomePage /></div>} />
             <Route path='/sales' element={<SalesPage />} />
+            <Route path='/registration' element={<div className='container'><RegistrationPage /></div>} />
+            <Route path='/profile' element={<div className='container'><ProfilePage /></div>} />
+            <Route path='/login' element={<div className='container'><LoginPage /></div>} />
           </Routes>
         </Router>
       </div>

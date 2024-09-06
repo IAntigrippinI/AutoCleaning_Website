@@ -1,7 +1,32 @@
 import { NavLink } from 'react-router-dom';
 import './HomePage.css'
+import { useEffect } from 'react';
 
 const HomePage = () => {
+
+    function isCookies() {
+        if (document.cookies) {
+
+        }
+        else {
+            setCookies()
+        }
+    }
+
+    function setCookies() {
+        document.cookie = 'usertoken=DDDDD'
+    }
+
+    const getCookies = () => {
+        let cookies = document.cookie
+        console.log(cookies)
+    }
+
+    useEffect(() => {
+        isCookies();
+        getCookies()
+    }, [])
+
     return (
         <div className="home-block">
             <div className="words">
