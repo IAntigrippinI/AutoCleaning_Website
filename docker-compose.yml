@@ -1,0 +1,51 @@
+networks:
+  dev:
+
+
+services:
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+      - frontend
+    volumes:
+      - './nginx.conf:/etc/nginx/nginx.conf'
+    networks:
+      - dev
+
+  app:
+    build:
+      context: ./backend
+    ports:
+      - 8000:8000
+    depends_on:
+      - postgres
+    networks:
+      - dev
+
+  frontend:
+    build:
+      context: ./frontend
+    expose:
+      - 5173:5173
+    networks:
+      - dev
+
+  postgres:
+    image: postgres
+    hostname: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      hostname: postgres
+    volumes:
+      - postgres-db-volume:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - dev
+
+volumes:
+  postgres-db-volume:
