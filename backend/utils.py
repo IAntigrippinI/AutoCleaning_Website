@@ -22,4 +22,7 @@ def get_price(conn: sqlalchemy.Connection, data: dict) -> float:
         conn, "services", "price", by_value="name", value=data["service_name"]
     )
     coeff = get_value(conn, "bodies", "coeff", "name", data["body_name"])
-    return {"price": round(float(price) * float(coeff), 0)}
+    sales = get_value(conn, "users", "sales", "phone", data["phone"])
+    print(f"sales user {sales}")
+    print(f"sale: {float(price) * float(coeff) * (1 - sales)}")
+    return {"price": round(float(price) * float(coeff) * (1 - sales), 0)}

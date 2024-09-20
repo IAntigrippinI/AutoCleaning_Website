@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import AdminPanel from '../../../components/desktop/AdminPanel/AdminPanel';
 import UserPanel from '../../../components/desktop/UserPanel/UserPanel';
+import { base_url } from '../../../config';
 
 const ProfilePage = () => {
     const navigate = useNavigate()
@@ -16,7 +17,7 @@ const ProfilePage = () => {
     const [superuser, setSuperuser] = useState(0)
 
     function getProfile() {
-        axios.post('http://localhost:8000/get_profile', {
+        axios.post(`${base_url}/get_profile`, {
             token: token
         }).then((resp) => {
             setUserId(resp.data.userid)

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './AdminPanel.css'
 import axios from 'axios';
+import { base_url } from '../../../config';
 
 const AdminPanel = () => {
 
@@ -34,7 +35,7 @@ const AdminPanel = () => {
 
 
     function onClickCount() {
-        axios.post(`http://localhost:8000/get_price`, {
+        axios.post(`${base_url}/get_price`, {
             phone: phone,
             car: car,
             service_name: service,
@@ -45,7 +46,7 @@ const AdminPanel = () => {
     }
 
     function onClickSave() {
-        axios.post(`http://localhost:8000/add_record`, {
+        axios.post(`${base_url}/add_record`, {
             phone: phone,
             car: car,
             service_name: service,

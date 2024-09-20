@@ -3,6 +3,9 @@ import './RegistrationPage.css'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import { useEffect, useState } from 'react';
+
+import { base_url } from '../../../config';
+
 const RegistrationPage = () => {
 
     const navigate = useNavigate()
@@ -15,18 +18,20 @@ const RegistrationPage = () => {
     const [alertPassword, setAlertPassword] = useState(0)
 
 
+
     useEffect(() => {
 
     }, [setAlertPassword])
 
     function onClickRegistr() {
+
         if (password == repeatPassword && name.length != 0 && phone.length != 0 && password.length != 0) {
-            axios.post('http://localhost:8000/register', {
+            axios.post(`${base_url}/register`, {
                 name: name,
                 phone: phone,
                 password: password,
             }).then((resp) => {
-                if (resp.data.message == 'incorrect password') {
+                if (resp.data.message == 'incorrect password' || resp.data.message == 'Server error') {
                     setAlert(resp.data.message)
                 }
                 else {

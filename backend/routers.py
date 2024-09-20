@@ -25,7 +25,6 @@ from creds import DB_URL, SECRET_KEY, ALGORITHM
 
 router = APIRouter()
 
-
 conn = sessionmaker(bind=create_engine(DB_URL))()
 create_tables(conn)
 fill_databases(conn)
@@ -46,7 +45,8 @@ async def register(register_item: RegisterClass):
             return {"message": f"user with number {data['phone']} already registered"}
         register_user(conn, data)
         return {"message": data["token"]}
-    except:
+    except Exception as e:
+        print(f"fail on registr {e}")
         return {
             "log_status": "FAILED",
             "message": f"Server error ",

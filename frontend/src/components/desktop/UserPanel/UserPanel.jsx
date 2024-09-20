@@ -1,12 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { base_url } from "../../../config";
 
 const UserPanel = () => {
 
     const [userHistory, setUserHistory] = useState([])
 
     function getUserHistory() {
-        axios.get(`http://localhost:8000/get_user_history?user_id=${localStorage.getItem('userid')}`).then((resp) => {
+        axios.get(`${base_url}/get_user_history?user_id=${localStorage.getItem('userid')}`).then((resp) => {
             setUserHistory(resp.data.res)
         })
     }
