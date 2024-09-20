@@ -1,0 +1,12 @@
+.home-page-mobile {
+    width: 80%;
+    font-size: 40px;
+    margin: 0 auto;
+    text-align: center;
+    color: white
+}
+
+.blue-text-mobile {
+    color: rgb(80, 186, 247);
+    font-size: 40px;
+}
