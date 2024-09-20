@@ -1,10 +1,28 @@
 import sqlalchemy
 import datetime
 
-from sqlalchemy import text
+from sqlalchemy import text, create_engine
+from sqlalchemy.orm import sessionmaker
+
+# from creds import POSTGRES_URL
+
+
+# def create_db():
+#     # conn = sessionmaker(bind=create_engine(POSTGRES_URL))()
+#     # conn.execute(text("""CREATE DATABASE autocleaning """))
+#     # conn.commit()
+#     # conn.close()
+
+#     eng = create_engine(POSTGRES_URL)
+#     conn = eng.connect()
+#     conn.connection.connection.set_isolation_level(0)
+#     conn.execute(text("create database autocleaning"))
+#     conn.connection.connection.set_isolation_level(1)
+#     conn.close()
 
 
 def create_tables(conn: sqlalchemy.Connection) -> None:
+
     conn.execute(
         text(
             """
@@ -114,6 +132,7 @@ def get_user_info(conn: sqlalchemy.Connection, phone: str):
 
 def get_all_user_info(conn: sqlalchemy.Connection, token: str):
     data = list(conn.execute(text(f"SELECT * FROM users WHERE token='{token}'")))[0]
+    print(f"issuperuser {data[7]}")
     return {
         "userid": data[0],
         "name": data[1],
@@ -140,6 +159,22 @@ def get_body_id(conn: sqlalchemy.Connection, body_name: str):
     ][0]
 
 
+def update_sales(conn: sqlalchemy.Connection, user_id: int, sale: float):
+    conn.execute(text(f"UPDATE users SET sales={sale} WHERE id = {user_id}"))
+    conn.commit()
+
+
+def add_washes(conn: sqlalchemy.Connection, user_id: int):
+    conn.execute(text(f"UPDATE users SET washes = washes + 1 where id={user_id}"))
+    conn.commit()
+    user_sale = list(
+        conn.execute(text(f"SELECT washes FROM users WHERE id={user_id}"))
+    )[0][0]
+    print(f"new sale is {user_sale} = {user_sale//200} ")
+    update_sales(conn, user_id, user_sale / 200)
+    conn.commit()
+
+
 def add_record_db(conn: sqlalchemy.Connection, data: dict):
     conn.execute(
         text(
@@ -153,6 +188,7 @@ def add_record_db(conn: sqlalchemy.Connection, data: dict):
                        )"""
         )
     )
+    add_washes(conn, data["user_id"])
     conn.commit()
 
 
